@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 14, 2017 10:42:04 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Bono" table="BONO" schema="dbo" catalog="BI" optimistic-lock="version">
+        <id name="nroDocumento" type="int">
+            <column name="nro_documento" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="centroDeSalud" class="entity.CentroDeSalud" fetch="select">
+            <column name="id_centro_de_salud" />
+        </many-to-one>
+        <many-to-one name="dia" class="entity.Dia" fetch="select">
+            <column name="id_dia" />
+        </many-to-one>
+        <many-to-one name="hora" class="entity.Hora" fetch="select">
+            <column name="id_hora" />
+        </many-to-one>
+        <many-to-one name="oficina" class="entity.Oficina" fetch="select">
+            <column name="id_oficina" not-null="true" />
+        </many-to-one>
+        <many-to-one name="paciente" class="entity.Paciente" fetch="select">
+            <column name="id_paciente" not-null="true" />
+        </many-to-one>
+        <many-to-one name="sociedad" class="entity.Sociedad" fetch="select">
+            <column name="id_sociedad" length="50" not-null="true" />
+        </many-to-one>
+        <property name="totalValor" type="int">
+            <column name="total_valor" not-null="true" />
+        </property>
+        <property name="bonificacionSeguro" type="java.lang.Integer">
+            <column name="bonificacion_seguro" />
+        </property>
+        <property name="totalBonificacion" type="int">
+            <column name="total_bonificacion" not-null="true" />
+        </property>
+        <property name="totalConvenio" type="int">
+            <column name="total_convenio" not-null="true" />
+        </property>
+        <property name="totalCopago" type="int">
+            <column name="total_copago" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="50" not-null="true" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" />
+        </property>
+        <property name="idDetalleBono" type="serializable">
+            <column name="id_detalle_bono" />
+        </property>
+        <set name="detalleBonos" table="DETALLE_BONO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="nro_documento" />
+            </key>
+            <one-to-many class="entity.DetalleBono" />
+        </set>
+    </class>
+</hibernate-mapping>

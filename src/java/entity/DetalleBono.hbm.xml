@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 14, 2017 10:42:04 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.DetalleBono" table="DETALLE_BONO" schema="dbo" catalog="BI" optimistic-lock="version">
+        <id name="codPrestacion" type="int">
+            <column name="cod_prestacion" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="bono" class="entity.Bono" fetch="select">
+            <column name="nro_documento" />
+        </many-to-one>
+        <many-to-one name="medico" class="entity.Medico" fetch="select">
+            <column name="id_medico" not-null="true" />
+        </many-to-one>
+        <property name="nombrePrestacion" type="string">
+            <column name="nombre_prestacion" length="50" not-null="true" />
+        </property>
+        <property name="cantidad" type="int">
+            <column name="cantidad" not-null="true" />
+        </property>
+        <property name="valorPrestacion" type="int">
+            <column name="valor_prestacion" not-null="true" />
+        </property>
+        <property name="convenioPrestacion" type="int">
+            <column name="convenio_prestacion" not-null="true" />
+        </property>
+        <property name="copago" type="int">
+            <column name="copago" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

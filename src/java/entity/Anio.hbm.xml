@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 14, 2017 10:42:04 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Anio" table="ANIO" schema="dbo" catalog="BI" optimistic-lock="version">
+        <id name="idAnio" type="int">
+            <column name="id_anio" />
+            <generator class="assigned" />
+        </id>
+        <property name="anio" type="java.lang.Integer">
+            <column name="anio" />
+        </property>
+        <property name="nombreAnio" type="string">
+            <column name="nombre_anio" length="50" />
+        </property>
+        <set name="meses" table="MES" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_anio" />
+            </key>
+            <one-to-many class="entity.Mes" />
+        </set>
+    </class>
+</hibernate-mapping>
