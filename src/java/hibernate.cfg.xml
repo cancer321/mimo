@@ -3,28 +3,20 @@
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
-    <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=BI</property>
+    <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=PollaGol</property>
     <property name="hibernate.connection.username">sa</property>
     <property name="hibernate.connection.password">black160594</property>
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-    <mapping resource="entity/CentroDeSalud.hbm.xml"/>
-    <mapping resource="entity/Supervisor.hbm.xml"/>
-    <mapping resource="entity/DetalleBono.hbm.xml"/>
-    <mapping resource="entity/Mes.hbm.xml"/>
-    <mapping resource="entity/Sociedad.hbm.xml"/>
-    <mapping resource="entity/Paciente.hbm.xml"/>
-    <mapping resource="entity/Medico.hbm.xml"/>
+    <mapping resource="entity/Perfil.hbm.xml"/>
     <mapping resource="entity/Sysdiagrams.hbm.xml"/>
-    <mapping resource="entity/Bono.hbm.xml"/>
-    <mapping resource="entity/Seguro.hbm.xml"/>
-    <mapping resource="entity/Hora.hbm.xml"/>
-    <mapping resource="entity/Cajero.hbm.xml"/>
-    <mapping resource="entity/Anio.hbm.xml"/>
-    <mapping resource="entity/Plan.hbm.xml"/>
-    <mapping resource="entity/Dia.hbm.xml"/>
-    <mapping resource="entity/Cotizante.hbm.xml"/>
-    <mapping resource="entity/Oficina.hbm.xml"/>
-    <mapping resource="entity/Prevision.hbm.xml"/>
+    <mapping resource="entity/UsuarioJuego.hbm.xml"/>
+    <mapping resource="entity/HistorialGanadores.hbm.xml"/>
+    <mapping resource="entity/Usuario.hbm.xml"/>
+    <mapping resource="entity/Menu.hbm.xml"/>
+    <mapping resource="entity/Pozo.hbm.xml"/>
+    <mapping resource="entity/Sorteo.hbm.xml"/>
+    <mapping resource="entity/JuegoSorteo.hbm.xml"/>
+    <mapping resource="entity/Juego.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
