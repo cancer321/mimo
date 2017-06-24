@@ -20,7 +20,7 @@ public class MenuModel {
         List<Menu>listadoMenu=new LinkedList<>();
         try{
             Transaction tx=session.beginTransaction();
-            listadoMenu=session.createQuery("select * from menu where id_perfil="+id).list() ;
+            listadoMenu=session.createCriteria(Menu.class).list() ;
             tx.commit();            
         }catch(HibernateException ex){
             ex.printStackTrace();
@@ -79,8 +79,8 @@ public class MenuModel {
         Transaction tx=this.session.beginTransaction();
         List<Menu> listadoMenu=null;
         try{
-            Query query=this.session.createQuery("from Menu as menu where menu.perfil = :perfil");
-            query.setParameter("perfil", id);
+            Query query=this.session.createQuery("from Menu as menu where menu.perfil.idPerfil = :perfil");
+            query.setParameter("perfil", id.getIdPerfil());
             listadoMenu=(List<Menu>)query.list();
             tx.commit();
             session.flush();
