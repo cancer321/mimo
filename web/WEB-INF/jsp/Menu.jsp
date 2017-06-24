@@ -8,57 +8,53 @@
     </head>
     <body>
         <jsp:include page="/cargaMenu" flush="true"/>
-        <jsp:useBean id="usuarioConectado" class="" scope="session"/>
-        <jsp:useBean id="objMenuPadre" class="duoc.cl.jee010.unidad2.entitys.Menu" scope="session"></jsp:useBean>
-        <jsp:useBean id="objMenuHijo" class="duoc.cl.jee010.unidad2.entitys.Menu" scope="session"></jsp:useBean> 
+        <jsp:useBean id="usuarioConectado" class="entity.Usuario" scope="session"/>
+        <jsp:useBean id="objMenuPadre" class="entity.Menu" scope="session"></jsp:useBean>
+        <jsp:useBean id="objMenuHijo" class="entity.Menu" scope="session"></jsp:useBean> 
+            <div class="container">
+                <section class="header">
+                    <h1 class="title">Bienvenido ADMIN.</h1>
+                </section>
+                <div class="navbar-spacer"></div>
+                <nav class="navbar">
+                    <div class="container">
+                        <ul class="navbar-list">
+                        <c:set var="v" value="1"></c:set>
+                        <c:forEach items="${listadoMenu}" var="objMenuPadre">
+                            <li class="navbar-item">
+                                <a class="navbar-link" href="#" data-popover="#codeNavPopover${v}">Code</a>
+                                <c:if test="${objMenuPadre.padreMenu.intValue()==0}">
 
-        <div class="container">
-            <section class="header">
-                <h1 class="title">Bienvenido ADMIN.</h1>
-            </section>
-            <div class="navbar-spacer"></div>
-            <nav class="navbar">
-                <div class="container">
-                    <ul class="navbar-list">
-                        <li class="navbar-item">
-                            <a class="navbar-link" href="Home.jsp">Home</a>
-                        </li>
-                        <li class="navbar-item">
-                            <p class="navbar-link">meme</p>
-                        </li>
-                        <li class="navbar-item">
-                            <p class="navbar-link">meme</p>
-                        </li>
+                                    <div
+
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" ><c:out value="${objMenuPadre.nombreMenu}"></c:out> <span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                            <c:forEach items="${listadoMenu}" var="objMenuHijo"> 
+                                                <c:if test="${objMenuHijo.idMenu.intValue() !=0 && objMenuPadre.idMenu.intValue() ==objMenuHijo.padreMenu.intValue()}">                                                             
+                                                    <li><a href="<c:out value="${objMenuHijo.destinoMenu.toString()}"/>"><c:out value="${objMenuHijo.nombreMenu.toString()}"></c:out></a></li>                       
+                                                    </c:if>
+                                                </c:forEach>
+                                            </li>
+                                        </ul>
+                                    </c:if>
+                                </c:forEach>
                     </ul>
                 </div>
             </nav>
-            <div class="docs-section">
-                <h6 class="docs-header">meme</h6>
-                <p>mimo</p>
+            <div class="container">
+                <ul class="navbar-list">
+                    <li class="navbar-item">
+                        <a class="navbar-link" href="Home.jsp">Home</a>
+                    </li>
+                    <li class="navbar-item">
+                        <p class="navbar-link">meme</p>
+                    </li>
+                    <li class="navbar-item">
+                        <p class="navbar-link">meme</p>
+                    </li>
+                </ul>
             </div>
-            <form>
-                <div class="row">
-                    <div class="six columns">
-                        <label for="exampleEmailInput">Your email</label>
-                        <input class="u-full-width" type="email" placeholder="test@mailbox.com" id="exampleEmailInput">
-                    </div>
-                    <div class="six columns">
-                        <label for="exampleRecipientInput">Reason for contacting</label>
-                        <select class="u-full-width" id="exampleRecipientInput">
-                            <option value="Option 1">Questions</option>
-                            <option value="Option 2">Admiration</option>
-                            <option value="Option 3">Can I get your number?</option>
-                        </select>
-                    </div>
-                </div>
-                <label for="exampleMessage">Message</label>
-                <textarea class="u-full-width" placeholder="Hi Dave ?" id="exampleMessage"></textarea>
-                <label class="example-send-yourself-copy">
-                    <input type="checkbox">
-                    <span class="label-body">Send a copy to yourself</span>
-                </label>
-                <input class="button-primary" type="submit" value="Submit">
-            </form>
-        </div>
-    </body>
+        </nav>
+    </div>
+</body>
 </html>
