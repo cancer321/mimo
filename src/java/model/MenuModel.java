@@ -83,8 +83,6 @@ public class MenuModel {
             query.setParameter("perfil", id.getIdPerfil());
             listadoMenu=(List<Menu>)query.list();
             tx.commit();
-            session.flush();
-            session.close();
         }catch(HibernateException ex){
             ex.printStackTrace();
         }
