@@ -5,6 +5,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <jsp:include page="./Menu.jsp"></jsp:include>
         <title>Welcome to Spring Web MVC project</title>
     </head>
 

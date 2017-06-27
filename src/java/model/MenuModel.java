@@ -16,7 +16,7 @@ public class MenuModel {
         this.session=HibernateUtil.getSessionFactory().getCurrentSession();
     }
     
-    public List<Menu>getAllMenuXPerfil(Perfil id){        
+    public List<Menu>getAllMenu(){        
         List<Menu>listadoMenu=new LinkedList<>();
         try{
             Transaction tx=session.beginTransaction();
@@ -83,8 +83,6 @@ public class MenuModel {
             query.setParameter("perfil", id.getIdPerfil());
             listadoMenu=(List<Menu>)query.list();
             tx.commit();
-            session.flush();
-            session.close();
         }catch(HibernateException ex){
             ex.printStackTrace();
         }
