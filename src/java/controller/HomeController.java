@@ -11,6 +11,7 @@ import java.util.List;
 import model.MenuModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -18,16 +19,17 @@ import org.springframework.web.servlet.ModelAndView;
  * @author amontess
  */
 @Controller
+@RequestMapping("Menu.htm")
 public class HomeController {
-    @RequestMapping("home.htm")
+    @RequestMapping(method = RequestMethod.GET)
     
-    public ModelAndView home(){
+    public ModelAndView menu(){
         ModelAndView mv= new ModelAndView();
         Perfil p = new Perfil(1, "admin");
         MenuModel menuModel= new MenuModel();
-        List<Menu> listado=menuModel.getAllMenuXPerfil(p);
-        mv.addObject("lista",listado);
-        mv.setViewName("home");
+        List<Menu> listado=menuModel.getMenuXPerfil(p);
+        mv.addObject("listadoMenu",listado);
+        mv.setViewName("Menu");
         return mv;
     }
 }

@@ -11,25 +11,7 @@
 </head>
 <body>
     <div class="container">
-        <section class="header">
-            <h1 class="title">Bienvenido ADMIN.</h1>
-        </section>
-        <div class="navbar-spacer"></div>
-        <nav class="navbar">
-            <div class="container">
-                <ul class="navbar-list">
-                    <li class="navbar-item">
-                        <a class="navbar-link" href="Home.jsp">Home</a>
-                    </li>
-                    <li class="navbar-item">
-                        <p class="navbar-link">meme</p>
-                    </li>
-                    <li class="navbar-item">
-                        <p class="navbar-link">meme</p>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <jsp:include page="Menu.jsp" flush="true"/>
         <div class="docs-section">
             <h6 class="docs-header">meme</h6>
             <p>mimo</p>
