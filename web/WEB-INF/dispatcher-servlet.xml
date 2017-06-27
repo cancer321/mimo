@@ -14,12 +14,12 @@
         <property name="mappings">
             <props>
                 <prop key="index.htm">indexController</prop>
-                <prop key="Menu.htm">HomeController</prop>
+                <prop key="menu.htm">MenuController</prop>
             </props>
         </property>
     </bean>
 
-    <bean name="HomeController" class="controller.HomeController" />
+    <bean name="MenuController" class="controller.MenuController" />
 
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver"
